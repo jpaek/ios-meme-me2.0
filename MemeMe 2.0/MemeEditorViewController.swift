@@ -11,9 +11,12 @@ import UIKit
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var topText: UITextField!
+    @IBOutlet weak var toolBar: UIToolbar!
     
+    @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var bottomText: UITextField!
     
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     
@@ -56,6 +59,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
 
     
+    @IBAction func cancelEdit(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
         chooseImageFromCameraOrPhoto(source: .camera)
     }
@@ -77,7 +83,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imagePickerView.image = image
         }
-        imagePickerView.contentMode = UIView.ContentMode.center
         shareButton.isEnabled = true
         dismiss(animated: true, completion: nil)
     }
@@ -153,11 +158,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func generateMemedImage() -> UIImage {
 
+        toolBar.isHidden = true
+        bottomToolbar.isHidden = true
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
+        
+        toolBar.isHidden = false
+        bottomToolbar.isHidden = false
 
         return memedImage
     }

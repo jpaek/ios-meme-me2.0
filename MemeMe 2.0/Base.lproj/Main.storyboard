@@ -132,15 +132,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zle-yr-qQC">
-                                <rect key="frame" x="87" y="353" width="240" height="200"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Zle-yr-qQC" firstAttribute="centerY" secondItem="Wao-a0-aG7" secondAttribute="centerY" id="CWf-wd-pLE"/>
-                            <constraint firstItem="Zle-yr-qQC" firstAttribute="top" secondItem="Wao-a0-aG7" secondAttribute="top" constant="309" id="Dxu-WF-oor"/>
-                            <constraint firstItem="Zle-yr-qQC" firstAttribute="centerX" secondItem="Wao-a0-aG7" secondAttribute="centerX" id="d19-v8-0oL"/>
-                            <constraint firstItem="Zle-yr-qQC" firstAttribute="leading" secondItem="Wao-a0-aG7" secondAttribute="leading" constant="87" id="sRQ-jh-gCJ"/>
+                            <constraint firstItem="Zle-yr-qQC" firstAttribute="top" secondItem="Wao-a0-aG7" secondAttribute="top" id="5sT-nd-bD8"/>
+                            <constraint firstItem="Wao-a0-aG7" firstAttribute="trailing" secondItem="Zle-yr-qQC" secondAttribute="trailing" id="Exk-mw-ctg"/>
+                            <constraint firstItem="Wao-a0-aG7" firstAttribute="bottom" secondItem="Zle-yr-qQC" secondAttribute="bottom" id="bXY-Uj-US8"/>
+                            <constraint firstItem="Zle-yr-qQC" firstAttribute="leading" secondItem="Wao-a0-aG7" secondAttribute="leading" id="hEb-Kc-Oik"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wao-a0-aG7"/>
                     </view>
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="flF-MG-gRI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1223" y="235"/>
+            <point key="canvasLocation" x="1221.7391304347827" y="234.375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v0x-mQ-htf">
@@ -188,6 +188,12 @@
                                     <barButtonItem enabled="NO" title="Share" image="square.and.arrow.up" catalog="system" id="ODl-U3-SRx">
                                         <connections>
                                             <action selector="share:" destination="BYZ-38-t0r" id="T2A-nX-hjG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="cancel" id="7eo-3k-dNl">
+                                        <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="6" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="cancelEdit:" destination="BYZ-38-t0r" id="qTf-Ke-Zme"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -242,10 +248,13 @@
                     <navigationItem key="navigationItem" id="Lpg-t2-6Yj"/>
                     <connections>
                         <outlet property="bottomText" destination="1Ih-lQ-tU3" id="BEL-ih-cvI"/>
+                        <outlet property="bottomToolbar" destination="qWR-A0-U5b" id="A59-mA-oaS"/>
                         <outlet property="cameraButton" destination="sgC-Lp-GkN" id="gR5-7d-X2a"/>
+                        <outlet property="cancelButton" destination="7eo-3k-dNl" id="IQ0-PN-4y6"/>
                         <outlet property="image" destination="Vbv-Qf-46K" id="YT2-Yd-iGG"/>
                         <outlet property="imagePickerView" destination="Vbv-Qf-46K" id="Dvg-M9-Zcp"/>
                         <outlet property="shareButton" destination="ODl-U3-SRx" id="f7z-Mp-PQW"/>
+                        <outlet property="toolBar" destination="Fgy-ml-fcE" id="Xbd-OF-Djr"/>
                         <outlet property="topText" destination="E3b-Ft-IH9" id="ywE-uH-cvT"/>
                     </connections>
                 </viewController>
